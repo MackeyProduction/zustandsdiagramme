@@ -492,8 +492,55 @@
     </div>
 </section>
 
-<section id="fifthExample">
+<section class="wrapper" id="fifthExample">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="order-container">
+                            <div class="order-nav cart">
+                                <h4 class="order-headline">Warenkorb</h4>
 
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <ul>
+                                            <li>Zwischensumme</li>
+                                            <li>Differenzbetrag</li>
+                                            <li>Liefergebühr</li>
+                                            <li>Extras</li>
+                                            <li><strong>Summe</strong></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <ul>
+                                            <li id="pizzaPrice1">0,00€</li>
+                                            <li id="difference1">8,00€</li>
+                                            <li id="deliveryFee1">1,00€</li>
+                                            <li id="extras1">0,00€</li>
+                                            <li id="priceTotal1"><strong>9,00€</strong></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="order-container order">
+                            <div style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
+                                <img src="./img/formular.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="wrapper-small">
+                    <img src="./img/State-Machine-Diagram.png" style="width: 600px">
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <script>
@@ -506,6 +553,7 @@
 
         $("#firstExample").hide();
         $("#secondExample").hide();
+        $("#fifthExample").hide();
 
 //        $("#btnFirstExample").click(function () {
 //            var plz = $("#plz").val();
@@ -562,6 +610,10 @@
             $("#pizzaPrice")[0].innerText = pizzaPrice.toFixed(2) + "€";
             $("#extras")[0].innerText = price.toFixed(2) + "€";
             $("#priceTotal")[0].innerText = priceTotal.toFixed(2) + "€";
+
+            $("#pizzaPrice1")[0].innerText = $("#pizzaPrice")[0].innerText;
+            $("#extras1")[0].innerText = $("#extras")[0].innerText;
+            $("#priceTotal1")[0].innerText = $("#priceTotal")[0].innerText;
 
             $("#enterAddress")[0].disabled = false;
             $("#myModal").modal('hide');
