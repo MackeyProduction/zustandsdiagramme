@@ -1,0 +1,31 @@
+body {
+    background-image: url('../img/Wonderful-Pizza-Wallpaper.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    min-height: 100%;
+}
+
+.wrapper-bg {
+    background: #333333;
+    opacity: 0.6;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper {
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.wrapper.wrapper-lg {
+    padding-top: 15%;
+}
+
+.wrapper.wrapper-small {
+    z-index: 1;
+    min-height: 100vh;
+    overflow: hidden;
+}

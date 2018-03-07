@@ -1,0 +1,16 @@
+{
+    "name": "zustandsdiagramme",
+    "license": "proprietary",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Til Anheier",
+            "email": "til.anheier@cbc.de",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "abraham/twitteroauth": "^0.6.6"
+    }
+}
