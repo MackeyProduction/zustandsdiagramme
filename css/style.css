@@ -74,3 +74,46 @@ body {
 .wrapper .list-group-item .restaurant-footer-info__data {
     font-size: 14pt;
 }
+
+.wrapper .list-group-item:hover {
+    background: #eee;
+    cursor: pointer;
+}
+
+.wrapper .order-nav ul {
+    list-style-type: none;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+
+.wrapper .order-nav li {
+    color: #b7b5ba;
+    padding-bottom: 15px;
+}
+
+.wrapper .order-nav li:hover {
+    color: #000000;
+    cursor: pointer;
+}
+
+.wrapper .order-nav .active {
+    color: inherit;
+}
+
+.wrapper .list-group-item .menu-description {
+    color: #b7b5ba;
+}
+
+.wrapper .list-group-item .menu-description strong {
+    color: #000000;
+    font-size: 12pt;
+    display: block;
+}
+
+.wrapper .list-group-item .menu-price {
+    text-align: right;
+}
+
+.wrapper .list-group-item .menu-price span {
+    color: green;
+}
