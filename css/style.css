@@ -36,17 +36,17 @@ body {
     overflow: hidden;
 }
 
-.wrapper .order-group {
+.wrapper .order-container {
     background: #FFFFFF;
     margin-top: 15px;
     text-align: left;
 }
 
-.wrapper .order-group.nav {
+.wrapper .order-container .order-nav {
     padding: 15px;
 }
 
-.wrapper .order-group.order {
+.wrapper .order-container.order {
     padding-left: 0;
     padding-right: 0;
     padding-top: 15px;
@@ -54,10 +54,23 @@ body {
     border: solid grey 1px;
 }
 
-.wrapper .order-group.order-headline {
+.wrapper .order-container .order-headline {
     margin: 0;
     padding-left: 15px;
     color: #0f0f0f;
     text-transform: uppercase;
     font-stretch: semi-condensed
+}
+
+.wrapper .list-group-item .restaurant-description {
+    margin-bottom: 60px;
+}
+
+.wrapper .list-group-item .restaurant-footer-info {
+    font-size: 11pt;
+    font-stretch: semi-condensed;
+}
+
+.wrapper .list-group-item .restaurant-footer-info__data {
+    font-size: 14pt;
 }
