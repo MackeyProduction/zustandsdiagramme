@@ -248,11 +248,11 @@
                                     </div>
                                     <div class="col-xs-4">
                                         <ul>
-                                            <li>0,00€</li>
-                                            <li>8,00€</li>
-                                            <li>1,00€</li>
-                                            <li>0,00€</li>
-                                            <li><strong>9,00€</strong></li>
+                                            <li id="pizzaPrice">0,00€</li>
+                                            <li id="difference">8,00€</li>
+                                            <li id="deliveryFee">1,00€</li>
+                                            <li id="extras">0,00€</li>
+                                            <li id="priceTotal"><strong>9,00€</strong></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -460,32 +460,32 @@
                 <div class="modal-body">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">
+                            <input type="checkbox" id="cheese" value="1.0">
                             Extra-Käse 1,00€
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">
+                            <input type="checkbox" id="cucumbers" value="1.0">
                             Gurken 1,00€
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">
+                            <input type="checkbox" id="corn" value="0.5">
                             Mais 0,50€
                         </label>
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" value="">
+                            <input type="checkbox" id="paprika" value="1.0">
                             Paprika 1,00€
                         </label>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
-                    <button type="button" class="btn btn-success">In den Warenkorb</button>
+                    <button type="button" class="btn btn-success" id="buy">In den Warenkorb</button>
                 </div>
             </div>
         </div>
@@ -498,6 +498,12 @@
 
 <script>
     $(document).ready(function () {
+        const pizzaPrice = 6.70;
+        const difference = 8.00;
+        const deliveryFee = 1.00;
+        var price = 0;
+        var priceTotal = 0;
+
         $("#firstExample").hide();
         $("#secondExample").hide();
 
@@ -523,9 +529,43 @@
         });
 
         $("#enterAddress").click(function () {
-            $("#fourthExample").hide();
+            $("#thirdExample").hide();
             $("#fifthExample").fadeIn();
         });
+
+        $("#buy").click(function () {
+            priceTotal = pizzaPrice + difference + deliveryFee;
+            var corn = $("#corn");
+            var cheese = $("#cheese");
+            var cucumbers = $("#cucumbers");
+            var paprika = $("#paprika");
+
+            // checking checkbox
+            if (corn[0].checked) {
+                price += parseInt(corn.val());
+            }
+
+            if (cheese[0].checked) {
+                price += parseInt(cheese.val());
+            }
+
+            if (cucumbers[0].checked) {
+                price += parseInt(cucumbers.val());
+            }
+
+            if (paprika[0].checked) {
+                price += parseInt(paprika.val());
+            }
+            priceTotal += price;
+
+            // calculate
+            $("#pizzaPrice")[0].innerText = pizzaPrice.toFixed(2) + "€";
+            $("#extras")[0].innerText = price.toFixed(2) + "€";
+            $("#priceTotal")[0].innerText = priceTotal.toFixed(2) + "€";
+
+            $("#enterAddress")[0].disabled = false;
+            $("#myModal").modal('hide');
+        })
     });
 </script>
 </body>
