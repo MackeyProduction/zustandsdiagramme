@@ -92,7 +92,6 @@ body {
 }
 
 .wrapper .order-nav li:hover {
-    color: #000000;
     cursor: pointer;
 }
 
@@ -105,7 +104,6 @@ body {
 }
 
 .wrapper .list-group-item .menu-description strong {
-    color: #000000;
     font-size: 12pt;
     display: block;
 }
@@ -116,4 +114,11 @@ body {
 
 .wrapper .list-group-item .menu-price span {
     color: green;
+}
+
+.wrapper .order-nav li:hover,
+.wrapper .list-group-item .menu-description strong,
+.wrapper .order-nav.cart,
+.wrapper .order-nav.cart li {
+    color: #000000;
 }
