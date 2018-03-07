@@ -16,16 +16,48 @@ body {
 }
 
 .wrapper {
-    color: #FFFFFF;
     text-align: center;
 }
 
 .wrapper.wrapper-lg {
-    padding-top: 15%;
+    color: #FFFFFF;
+    padding-top: 25%;
+}
+
+.wrapper.headline {
+    font-size: 32pt;
+    font-weight: bold;
 }
 
 .wrapper.wrapper-small {
+    padding-top: 15%;
     z-index: 1;
     min-height: 100vh;
     overflow: hidden;
+}
+
+.wrapper.order-inner {
+    background: #FFFFFF;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.wrapper.order-inner.nav {
+    padding: 15px;
+}
+
+.wrapper.order-inner.order {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 15px;
+    height: 96.7vh;
+    border: solid grey 1px;
+}
+
+.wrapper.order-inner.order-headline {
+    margin: 0;
+    padding-left: 15px;
+    color: #0f0f0f;
+    text-transform: uppercase;
+    font-stretch: semi-condensed
 }
