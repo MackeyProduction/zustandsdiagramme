@@ -527,8 +527,98 @@
                     </div>
                     <div class="col-lg-9">
                         <div class="order-container order">
-                            <div style="display: block; margin-left: auto; margin-right: auto; width: 50%;">
-                                <img src="./img/formular.png">
+                            <div class="order-headline">
+                                <h4>Deine Lieferadresse</h4>
+                            </div>
+
+                            <div class="container-fluid">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="inputName">Vor- und Nachname</label>
+                                        <input type="text" class="form-control" id="inputName">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                <label for="inputStreet">Straße</label>
+                                                <input type="text" class="form-control" id="inputStreet">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label for="inputStreetNumber">Hausnr</label>
+                                                <input type="text" class="form-control" id="inputStreetNumber">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-xs-8">
+                                                <label for="inputPLZ">PLZ</label>
+                                                <input type="text" class="form-control" id="inputPLZ">
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label for="inputCity">Stadt</label>
+                                                <input type="text" class="form-control" id="inputCity">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputCompany">Firma (optional)</label>
+                                        <input type="text" class="form-control" id="inputCompany">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputExtras">Besondere Hinweise (optional)</label>
+                                        <input type="text" class="form-control" id="inputExtras" placeholder="z.B. Erster Innenhof, 4. Etage rechts...">
+                                    </div>
+
+                                    <div style="padding-top: 15px">
+                                        <h4>Bestellbestätigung & Rückfragen</h4>
+                                        <div class="form-group">
+                                            <label for="inputEmail">E-Mail</label>
+                                            <input type="email" class="form-control" id="inputEmail">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputNumber">Telefon</label>
+                                            <input type="text" class="form-control" id="inputNumber">
+                                        </div>
+                                    </div>
+
+                                    <div style="padding-top: 15px">
+                                        <div class="order-headline">
+                                            <h4>Zahlungsart wählen</h4>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="inlineRadioOptions" id="paypal" value="paypal" checked> PayPal
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="inlineRadioOptions" id="cashPayment" value="cashPayment"> Barzahlung
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <div class="panel panel-default">
+                                                    <div class="panel-body">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="inlineRadioOptions" id="collect" value="collect"> Abholen
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Bestellen</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -553,7 +643,7 @@
 
         $("#firstExample").hide();
         $("#secondExample").hide();
-        $("#fifthExample").hide();
+        $("#thirdExample").hide();
 
 //        $("#btnFirstExample").click(function () {
 //            var plz = $("#plz").val();
