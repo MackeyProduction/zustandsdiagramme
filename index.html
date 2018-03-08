@@ -532,7 +532,7 @@
                             </div>
 
                             <div class="container-fluid">
-                                <form>
+                                <div>
                                     <div class="form-group">
                                         <label for="inputName">Vor- und Nachname</label>
                                         <input type="text" class="form-control" id="inputName">
@@ -617,8 +617,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-success">Bestellen</button>
-                                </form>
+                                    <button type="submit" id="submitOffer" class="btn btn-success">Bestellen</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -633,6 +633,29 @@
     </div>
 </section>
 
+<section id="success">
+    <!-- Modal -->
+    <div class="modal fade" id="offerSuccess" tabindex="-1" role="dialog" aria-labelledby="label">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="label">Bestellung erfolgreich</h4>
+                </div>
+                <div class="modal-body">
+                    <strong style="display: block;">Herzlichen Glückwunsch!</strong>
+                    <p>Du hast deine Bestellung erfolgreich abgeschlossen!</p>
+
+                    <p>Die Zubereitungszeit beträgt 1:00h.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <script>
     $(document).ready(function () {
         const pizzaPrice = 6.70;
@@ -641,21 +664,21 @@
         var price = 0;
         var priceTotal = 0;
 
-        $("#firstExample").hide();
+        $("#fifthExample").hide();
         $("#secondExample").hide();
         $("#thirdExample").hide();
 
-//        $("#btnFirstExample").click(function () {
-//            var plz = $("#plz").val();
-//
-//            if (plz === "50679") {
-//                //alert("Postleitzahl stimmt überein!");
-//                $("#firstExample").hide();
-//                $("#secondExample").fadeIn();
-//            } else {
-//                alert("Postleitzahl ist nicht gültig!");
-//            }
-//        });
+        $("#btnFirstExample").click(function () {
+            var plz = $("#plz").val();
+
+            if (plz === "50679") {
+                //alert("Postleitzahl stimmt überein!");
+                $("#firstExample").hide();
+                $("#secondExample").fadeIn();
+            } else {
+                alert("Postleitzahl ist nicht gültig!");
+            }
+        });
 
         $("#pizza-hut").click(function () {
             $("#secondExample").hide();
@@ -707,6 +730,16 @@
 
             $("#enterAddress")[0].disabled = false;
             $("#myModal").modal('hide');
+        });
+
+        $("#submitOffer").click(function () {
+            if ($("#paypal")[0].checked) {
+                window.open('https://www.paypal.de', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')
+            }
+
+            if ($("#cashPayment")[0].checked || $("#collect")[0].checked) {
+                $("#offerSuccess").modal('show');
+            }
         })
     });
 </script>
