@@ -43,14 +43,31 @@
         <div class="row">
             <div class="col-lg-7">
                 <div class="row">
-                    <div class="col-lg-2">
+                    <div class="col-lg-3">
                         <div class="order-container">
                             <div class="order-nav">
-                                <ul class="nav nav-pills nav-stacked">
-                                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                                    <li role="presentation"><a href="#">Profile</a></li>
-                                    <li role="presentation"><a href="#">Messages</a></li>
-                                </ul>
+                                <div class="order-headline">
+                                    <h4>Filtern nach</h4>
+                                </div>
+
+                                <div class="container-fluid">
+                                    <strong>Mindestbestellwert</strong>
+                                    <div class="slideContainer" style="padding-top: 15px; padding-bottom: 15px;">
+                                        <input type="range" min="1" max="3" value="3" class="slider" id="myRange">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            10€
+                                        </div>
+                                        <div class="col-lg-4">
+                                            15€
+                                        </div>
+                                        <div class="col-lg-4">
+                                            Egal
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -472,8 +489,8 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="corn" value="0.5">
-                            Mais 0,50€
+                            <input type="checkbox" id="corn" value="1.0">
+                            Mais 1,00€
                         </label>
                     </div>
                     <div class="checkbox">
