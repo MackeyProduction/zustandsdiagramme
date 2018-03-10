@@ -487,8 +487,8 @@
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="corn" value="1.0">
-                            Mais 1,00€
+                            <input type="checkbox" id="corn" value="0.5">
+                            Mais 0,50€
                         </label>
                     </div>
                     <div class="checkbox">
@@ -497,6 +497,8 @@
                             Paprika 1,00€
                         </label>
                     </div>
+
+                    <strong>Zwischensumme: </strong><span id="pizzaPriceModal">6,70€</span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
@@ -708,39 +710,33 @@
             $("#fifthExample").fadeIn();
         });
 
+        $("input[type=checkbox]").change(function () {
+            $(this).each(function(key, val) {
+                if (val.checked) {
+                    price += parseFloat(val.value);
+                } else {
+                    price -= parseFloat(val.value);
+                }
+                $("#pizzaPriceModal")[0].innerText = (pizzaPrice + price).toFixed(2) + "€";
+            });
+        });
+
         $("#buy").click(function () {
-            var corn = $("#corn");
-            var cheese = $("#cheese");
-            var cucumbers = $("#cucumbers");
-            var paprika = $("#paprika");
-
-            // checking checkbox
-            if (corn[0].checked) {
-                price += parseInt(corn.val());
-            }
-
-            if (cheese[0].checked) {
-                price += parseInt(cheese.val());
-            }
-
-            if (cucumbers[0].checked) {
-                price += parseInt(cucumbers.val());
-            }
-
-            if (paprika[0].checked) {
-                price += parseInt(paprika.val());
-            }
+            $("input[type=checkbox]").each(function(key, val) {
+                val.checked = false;
+            });
 
             // calculate
             pizzaPriceTemp += pizzaPrice + price;
             difference = ((difference - pizzaPriceTemp) > 0) ? (Math.round((difference - pizzaPriceTemp) * 100) / 100) : 0;
             priceTotal = pizzaPriceTemp + difference + deliveryFee;
             price = 0;
+            $("#pizzaPriceModal")[0].innerText = pizzaPrice.toFixed(2) + "€";
 
             // output
             $("#pizzaPrice")[0].innerText = pizzaPriceTemp.toFixed(2) + "€";
             $("#difference")[0].innerText = difference.toFixed(2) + "€";
-            $("#priceTotal")[0].innerText = priceTotal.toFixed(2) + "€";
+            $("#priceTotal")[0].innerHTML = "<strong>" + priceTotal.toFixed(2) + "€</strong>";
 
             $("#pizzaPrice1")[0].innerText = $("#pizzaPrice")[0].innerText;
             $("#priceTotal1")[0].innerText = $("#priceTotal")[0].innerText;
