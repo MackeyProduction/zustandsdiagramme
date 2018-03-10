@@ -259,7 +259,6 @@
                                             <li>Zwischensumme</li>
                                             <li>Differenzbetrag</li>
                                             <li>Liefergebühr</li>
-                                            <li>Extras</li>
                                             <li><strong>Summe</strong></li>
                                         </ul>
                                     </div>
@@ -268,7 +267,6 @@
                                             <li id="pizzaPrice">0,00€</li>
                                             <li id="difference">8,00€</li>
                                             <li id="deliveryFee">1,00€</li>
-                                            <li id="extras">0,00€</li>
                                             <li id="priceTotal"><strong>9,00€</strong></li>
                                         </ul>
                                     </div>
@@ -525,7 +523,6 @@
                                             <li>Zwischensumme</li>
                                             <li>Differenzbetrag</li>
                                             <li>Liefergebühr</li>
-                                            <li>Extras</li>
                                             <li><strong>Summe</strong></li>
                                         </ul>
                                     </div>
@@ -534,7 +531,6 @@
                                             <li id="pizzaPrice1">0,00€</li>
                                             <li id="difference1">8,00€</li>
                                             <li id="deliveryFee1">1,00€</li>
-                                            <li id="extras1">0,00€</li>
                                             <li id="priceTotal1"><strong>9,00€</strong></li>
                                         </ul>
                                     </div>
@@ -675,15 +671,16 @@
 
 <script>
     $(document).ready(function () {
-        const pizzaPrice = 6.70;
-        const difference = 8.00;
+        const pizzaPrice = 6.7;
+        var pizzaPriceTemp = 0;
+        var difference = 8;
         const deliveryFee = 1.00;
         var price = 0;
         var priceTotal = 0;
 
         $("#fifthExample").hide();
         $("#secondExample").hide();
-        $("#thirdExample").hide();
+        $("#firstExample").hide();
 
         $("#btnFirstExample").click(function () {
             var plz = $("#plz").val();
@@ -712,7 +709,6 @@
         });
 
         $("#buy").click(function () {
-            priceTotal = pizzaPrice + difference + deliveryFee;
             var corn = $("#corn");
             var cheese = $("#cheese");
             var cucumbers = $("#cucumbers");
@@ -734,15 +730,19 @@
             if (paprika[0].checked) {
                 price += parseInt(paprika.val());
             }
-            priceTotal += price;
 
             // calculate
-            $("#pizzaPrice")[0].innerText = pizzaPrice.toFixed(2) + "€";
-            $("#extras")[0].innerText = price.toFixed(2) + "€";
+            pizzaPriceTemp += pizzaPrice + price;
+            difference = ((difference - pizzaPriceTemp) > 0) ? (Math.round((difference - pizzaPriceTemp) * 100) / 100) : 0;
+            priceTotal = pizzaPriceTemp + difference + deliveryFee;
+            price = 0;
+
+            // output
+            $("#pizzaPrice")[0].innerText = pizzaPriceTemp.toFixed(2) + "€";
+            $("#difference")[0].innerText = difference.toFixed(2) + "€";
             $("#priceTotal")[0].innerText = priceTotal.toFixed(2) + "€";
 
             $("#pizzaPrice1")[0].innerText = $("#pizzaPrice")[0].innerText;
-            $("#extras1")[0].innerText = $("#extras")[0].innerText;
             $("#priceTotal1")[0].innerText = $("#priceTotal")[0].innerText;
 
             $("#enterAddress")[0].disabled = false;
