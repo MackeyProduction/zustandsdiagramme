@@ -299,7 +299,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="list-group-item" id="chooseExtras" data-toggle="modal" data-target="#myModal">
+                                <div class="list-group-item" id="chooseExtras">
                                     <div class="row">
                                         <div class="col-lg-10">
                                             <div class="menu-description">
@@ -456,7 +456,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="wrapper-small">
-                    <img src="./img/State-Machine-Diagram.png" style="width: 600px">
+                    <img id="fourthExampleImage" style="width: 400px">
                 </div>
             </div>
         </div>
@@ -550,17 +550,17 @@
                                 <div>
                                     <div class="form-group">
                                         <label for="inputName">Vor- und Nachname</label>
-                                        <input type="text" class="form-control" id="inputName">
+                                        <input type="text" class="form-control" id="inputName" required>
                                     </div>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-xs-8">
                                                 <label for="inputStreet">Straße</label>
-                                                <input type="text" class="form-control" id="inputStreet">
+                                                <input type="text" class="form-control" id="inputStreet" required>
                                             </div>
                                             <div class="col-xs-4">
                                                 <label for="inputStreetNumber">Hausnr</label>
-                                                <input type="text" class="form-control" id="inputStreetNumber">
+                                                <input type="text" class="form-control" id="inputStreetNumber" required>
                                             </div>
                                         </div>
                                     </div>
@@ -568,11 +568,11 @@
                                         <div class="row">
                                             <div class="col-xs-8">
                                                 <label for="inputPLZ">PLZ</label>
-                                                <input type="text" class="form-control" id="inputPLZ">
+                                                <input type="text" class="form-control" id="inputPLZ" required>
                                             </div>
                                             <div class="col-xs-4">
                                                 <label for="inputCity">Stadt</label>
-                                                <input type="text" class="form-control" id="inputCity">
+                                                <input type="text" class="form-control" id="inputCity" required>
                                             </div>
                                         </div>
                                     </div>
@@ -589,11 +589,11 @@
                                         <h4>Bestellbestätigung & Rückfragen</h4>
                                         <div class="form-group">
                                             <label for="inputEmail">E-Mail</label>
-                                            <input type="email" class="form-control" id="inputEmail">
+                                            <input type="email" class="form-control" id="inputEmail" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputNumber">Telefon</label>
-                                            <input type="text" class="form-control" id="inputNumber">
+                                            <input type="text" class="form-control" id="inputNumber" required>
                                         </div>
                                     </div>
 
@@ -641,7 +641,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="wrapper-small">
-                    <img src="./img/State-Machine-Diagram.png" style="width: 600px">
+                    <img id="fifthExampleImage">
                 </div>
             </div>
         </div>
@@ -702,7 +702,8 @@
         });
 
         $("#chooseExtras").click(function () {
-            $("#myModal").show();
+            $("#myModal").modal('show');
+            $("#fourthExampleImage")[0].src = "./img/interne aktion-extrazutat.png";
         });
 
         $("#enterAddress").click(function () {
@@ -739,6 +740,7 @@
             $("#priceTotal")[0].innerHTML = "<strong>" + priceTotal.toFixed(2) + "€</strong>";
 
             $("#pizzaPrice1")[0].innerText = $("#pizzaPrice")[0].innerText;
+            $("#difference1")[0].innerText = $("#difference")[0].innerText;
             $("#priceTotal1")[0].innerText = $("#priceTotal")[0].innerText;
 
             $("#enterAddress")[0].disabled = false;
@@ -748,6 +750,7 @@
         $("#submitOffer").click(function () {
             if ($("#paypal")[0].checked) {
                 window.open('https://www.paypal.de', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')
+                $("#fifthExampleImage")[0].src = "./img/aktionssequenz-paypal.png";
             }
 
             if ($("#cashPayment")[0].checked || $("#collect")[0].checked) {
