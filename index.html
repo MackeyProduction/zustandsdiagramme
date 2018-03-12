@@ -31,7 +31,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="wrapper-small">
-                    <img src="./img/State-Machine-Diagram.png" style="width: 600px">
+                    <img id="firstExampleImage" width="400px">
                 </div>
             </div>
         </div>
@@ -221,7 +221,7 @@
             </div>
             <div class="col-lg-5">
                 <div class="wrapper-small">
-                    <img src="./img/State-Machine-Diagram.png" style="width: 600px">
+                    <img src="./img/event-lieferant-auswaehlen.png" width="600px" id="secondExampleImage">
                 </div>
             </div>
         </div>
@@ -276,6 +276,7 @@
                                 </div>
                             </div>
                         </div>
+                        <button class="btn btn-danger btn-lg" id="cancel" style="width: 100%;">Bestellvorgang abbrechen</button>
                     </div>
                     <div class="col-lg-9">
                         <div class="order-container order">
@@ -682,9 +683,10 @@
 
         $("#fifthExample").hide();
         $("#secondExample").hide();
-        $("#firstExample").hide();
+        $("#thirdExample").hide();
 
         $("#btnFirstExample").click(function () {
+            $("#firstExampleImage")[0].src = "./img/entscheidung-plz.png";
             var plz = $("#plz").val();
 
             if (plz === "50679") {
@@ -750,13 +752,23 @@
         $("#submitOffer").click(function () {
             if ($("#paypal")[0].checked) {
                 window.open('https://www.paypal.de', 'popup', 'width=580,height=360,scrollbars=no, toolbar=no,status=no,resizable=yes,menubar=no,location=no,directories=no,top=10,left=10')
+                $("#fifthExampleImage").attr("width", "300px");
                 $("#fifthExampleImage")[0].src = "./img/aktionssequenz-paypal.png";
+            }
+
+            if ($("#collect")[0].checked) {
+                $("#fifthExampleImage").attr("width", "700px");
+                $("#fifthExampleImage")[0].src = "./img/effekt-bestellung abholen.png";
             }
 
             if ($("#cashPayment")[0].checked || $("#collect")[0].checked) {
                 $("#offerSuccess").modal('show');
             }
-        })
+        });
+
+        $("#cancel").click(function () {
+            $("#fourthExampleImage")[0].src = "./img/startzustand,endzustand,terminator-bestellvorgang.png";
+        });
     });
 </script>
 </body>
